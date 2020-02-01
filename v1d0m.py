@@ -19,32 +19,9 @@ import json
 import socket
 
 def banner():
-	print ("""   
-	                  ...-'  |`.  _______                                         
-	 .----.     .----.|      |  | \  ___ `'.                      __  __   ___    
-	  \    \   /    / ....   |  |  ' |--.\  \                    |  |/  `.'   `.  
-	   '   '. /'   /    -|   |  |  | |    \  '     .-''` ''-.    |   .-.  .-.   ' 
-	   |    |'    /      |   |  |  | |     |  '  .'          '.  |  |  |  |  |  | 
-	   |    ||    |   ...'   `--'  | |     |  | /              ` |  |  |  |  |  | 
-	   '.   `'   .'   |         |`.| |     ' .''                '|  |  |  |  |  | 
-	    \        /    ` --------\ || |___.' /' |         .-.    ||  |  |  |  |  | 
-	     \      /      `---------'/_______.'/  .        |   |   .|__|  |__|  |__| 
-	      '----'                  \_______|/    .       '._.'  /                  
-	                                             '._         .'                   
-	                                                '-....-'`                    
-		""")
-	print ("""
-	** Tool to obtain subdomains throught Virustotal's search
-	    ** Author: Ignacio Brihuega Rodriguez a.k.a N4xh4ck5
-	    ** DISCLAMER This tool was developed for educational goals. 
-	    ** The author is not responsible for using to others goals.
-	    ** A high power, carries a high responsibility!
-	    ** Version 2.0""")
-
+	return 0 #print ("")
 def help():
-	print (""" \nThis script obtains subdomains throught Virustotal's search
-
-	 			Example of usage: python v1d0m.py -d apple.es """)
+	return 0 #print (" ")
 
 def WhoIP(domain):
 	"""
@@ -52,12 +29,12 @@ def WhoIP(domain):
 	"""
 	try:
 
-		print (domain)
+		#print (domain)
 		ip=""
 		try:
 			ip = socket.gethostbyname(domain)
 		except:
-			print ("It can't obtain the reverse IP")
+#			print ("It can't obtain the reverse IP")
 			ip = "0.0.0.0"
 	except Exception as e:
 		print ("Error in function WhoIP" + str(e))
@@ -71,7 +48,7 @@ def ExportResults(domain,ip,export):
 	row = 0
 	col = 0
 	try:
-		print ("\n")
+		#print ("\n")
 		if export == "js": 
 			#Export the results in json format
 			print ("Exporting the results in an json")
@@ -109,10 +86,10 @@ def VisuResults(subdomain,export):
 	ip =""
 	try:
 		for i in subdomain:
-			print ("subdomains: ")
+#			print ("subD ")
 			ip = WhoIP(i)
 			array_ip.append(ip)
-			print ("\n\t- " + i+ " ["+ip+"]")
+			print (i+ " ["+ip+"]")
 	except Exception as e:
 		print ("Error in function VisuResults" + str(e))
 	finally:
@@ -131,7 +108,7 @@ def parser_html(data):
 	except Exception as e:
 		print ("Error in function parser_html" + str(e))
 	finally:	
-		"""print (subdomains)	
+		"""
 		exit(1)"""
 		return subdomains
 def SendRequest(target,export):
